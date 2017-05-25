@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="Zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apple Watch宣传页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section section1">
+            <h1>它，终于来了。</h1>
+            <p>为了充分发挥体积小巧及佩戴于手腕的优势，Apple Watch带来全新的科技和互动方式。他可以让你更快捷地完成一些早已习惯的事，也可实现过去根本无法企及的新功能。因此，这将会是焕然一新的使用体验，也将实现与你前所未有的贴近。</p>
+            <a href="#">进一步了解</a>
+        </div>
+        <div class="section section2">
+            <h1>真正与你贴近的个人设备</h1>
+            <a href="#">进一步了解</a>
+        </div>
+        <div class="section section3">
+            <h1>非同一般的精准计时</h1>
+            <p>内置 GPS、50 米防水1、迅捷的双核处理器，以及亮度达前代产品 2 倍的显示屏。Apple Watch Series 2 满载各种功能，不仅可助你保持活力，充满动力，还可让你与亲友紧密联系，是你健康生活的理想拍档。</p>
+            <a href="#">进一步了解</a>
+        </div>
+        <div class="section section4">
+            <h1>每一天，都可以更好。</h1>
+            <div class="row">
+                <div class="column">
+                    <img src="img/primary_large_2x.jpg" class="primary" alt="">
+                    <h4 class="primary"></h4>
+                    <div class="intro">
+                        <p>不锈钢或深空黑色不锈钢表壳，蓝宝石水晶镜面，搭配多款时尚腕带。</p>
+                        <a href="#" class="more">了解更多</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <img src="img/primary_large_2x.jpg" class="sport" alt="">
+                    <h4 class="sport"></h4>
+                    <div class="intro">
+                        <p>不锈钢或深空黑色不锈钢表壳，蓝宝石水晶镜面，搭配多款时尚腕带。</p>
+                        <a href="#" class="more">了解更多</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <img src="img/primary_large_2x.jpg" class="edition" alt="">
+                    <h4 class="edition"></h4>
+                    <div class="intro">
+                        <p>不锈钢或深空黑色不锈钢表壳，蓝宝石水晶镜面，搭配多款时尚腕带。</p>
+                        <a href="#" class="more">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#">了解更多</a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            verticalCentered:false,
+            anchors:['page1','page2','page3','page4'],
+            navigation:true,
+            navigationTooltips:['它，终于来了。','真正与你贴近的个人设备','非同一般的精准计时','每一天，都可以更好。'],
+            afterLoad:function (link,index) {       //切入页面
+                switch (index){
+                    case 1:
+                        move('.section1 h1').scale(1.5).end();
+                        move('.section1 p').set('margin-top','5%').end();
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(.7).end();
+                        break;
+                    case 3:
+                        move('.section3 h1').set('margin-left','20%').end();
+                        move('.section3 p').set('margin-left','20%').end();
+                        break;
+                    case 4:
+                        move('.section4 img.primary').rotate(360).end(function () {
+                            move('.section4 img.sport').rotate(360).end(function () {
+                                move('.section4 img.edition').rotate(360).end(function () {
+                                    move('.section4 h4.primary').scale(1.3).end(function () {
+                                        move('.section4 h4.sport').scale(1.3).end(function () {
+                                            move('.section4 h4.edition').scale(1.3).end();
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            },
+            onLeave:function (link,index) {     //切出页面
+                switch (index){
+                    case 1:
+                        move('.section1 h1').scale(1).end();
+                        move('.section1 p').set('margin-top','800px').end();
+                        break;
+                    case 2:
+                        move('.section2 h1').scale(1).end();
+                        break;
+                    case 3:
+                        move('.section3 h1').set('margin-left','-1500px').end();
+                        move('.section3 p').set('margin-left','1500px').end();
+                        break;
+                    case 4:
+                        move('.section4 img.primary').rotate(-360).end();
+                        move('.section4 img.sport').rotate(-360).end();
+                        move('.section4 img.edition').rotate(-360).end();
+                        move('.section4 h4.primary').scale(1).end();
+                        move('.section4 h4.sport').scale(1).end();
+                        move('.section4 h4.edition').scale(1).end();
+                        break;
+                    default:
+                        break;
+                }
+            },
+            afterRender:function (link,index) {     //页面加载完毕
+                switch (index){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        break;
+                }
+            },
+        });
+    });
+</script>
+</html>
