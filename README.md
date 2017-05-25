@@ -5,10 +5,6 @@ This is a **FullPage** Demo,and you can learn some JavaScript skills form it.Her
 
 ----------
 
-
-Resources(cdn):
--------------
-
 // jQuery.js <br/>
 https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js<br/>
 // fullPage.css fullPage.js<br/>
